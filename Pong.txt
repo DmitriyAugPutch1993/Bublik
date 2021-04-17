@@ -1,0 +1,46 @@
+from pygame import*
+window=display.set_mode((700, 500))
+window.fill((200, 200, 200))
+fps = 59
+clock=time.Clock()
+game = True
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+        clock.tick(60)
+        display.update()
+
+lass Player(GameSprite):
+    def update_l(self):
+        keys_pressed = key.get_pressed()
+        if keys[K_w] and self.rect.y >5:
+           self.rect.x -= speed
+        if keys[K_s] and self.rect.x.rect.y<405:
+           self.rect.x += speed
+    def update_r(self):
+        keys_pressed = key.get_pressed()
+        if keys_pressed[K_UP] and self.rect.y .5:
+            self.rect.y -= speed
+        if keys_pressed[K_DOWN] and self.rect.y<405:
+            self.rect.y += speed
+
+class Enemy(GameSprite): 
+    def update(self):
+        self.rect.y += self.speed
+        global lost
+        if self.rect.y > win_height:
+            self.rect.x = randint(80, win_width - 80)
+            self.rect.y = 0
+            lost = lost + 1
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+    clock.tick(fps)
+    if finish != True:
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
+    display.update()
